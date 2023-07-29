@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
+import { RecipesModule } from './recipes/recipes.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { UserModule } from './user/user.module';
     BrowserModule,
     CoreModule,
     UserModule,
+    RecipesModule,
     AppRoutingModule,
   ],
   providers: [],
