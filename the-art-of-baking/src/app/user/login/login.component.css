@@ -6,6 +6,7 @@
     text-align: center;
     border-radius: 6px;
     border: 1px solid black;
+    color: rgb(186, 52, 141);
 }
 
 h1{
@@ -54,4 +55,5 @@ h1{
     font-weight: 600;
     letter-spacing: 0.5px;
     background-color: #fff;
+    color: rgb(186, 52, 141);
 }
