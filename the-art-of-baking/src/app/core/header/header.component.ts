@@ -7,6 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+isLoggedIn: boolean = true;
   constructor(private router: Router){}
 }
