@@ -10,13 +10,13 @@ const routes: Routes = [
         path: 'recipes',
         children: [
             {
-                path: 'recipes',
+                path: 'all-recipes',
                 component: AllRecipesComponent
             },
             {
                 path: ':recipeId',
                 component: RecipeDetailsComponent
-            }
+            },
         ]
     },
     {
