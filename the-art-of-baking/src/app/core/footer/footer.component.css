@@ -3,7 +3,9 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color:  rgb(230, 220, 209);
-    color: white;
+    background-color: #f7eef9;
+    opacity: 0.8;
+    background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #f7eef9 18px ), repeating-linear-gradient( #f6d1f255, #f6d1f2 );
+    color: rgb(149, 35, 111);;
     text-align: center;
   }
