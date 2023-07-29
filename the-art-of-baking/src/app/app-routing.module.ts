@@ -11,7 +11,11 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
-  }
+  },
+  // {
+  //   path: 'recipes',
+  //   component: 
+  // }
 ];
 
 @NgModule({
