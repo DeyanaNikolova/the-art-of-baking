@@ -12,7 +12,7 @@ header {
 .nav-bar{
     display: flex;
     align-items: center;
-    justify-content: space-between; 
+    justify-content: space-between;     
 }
 
 .nav-list {
@@ -27,7 +27,9 @@ header {
 }
 
 .list-item a {
-    padding: 10px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding: 6px 10px;
     border: 1px solid black;
     border-radius: 6px;
     background-color: gray;
