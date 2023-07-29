@@ -10,7 +10,8 @@ const routes: Routes = [
         path: 'recipes',
         children: [
             {
-                path: 'all-recipes',
+                path: '',
+                pathMatch: 'full',
                 component: AllRecipesComponent
             },
             {
