@@ -8,6 +8,7 @@ import { MainComponent } from './main/main.component';
 import { HomeComponent } from './home/home.component';
 import { UserModule } from './user/user.module';
 import { RecipesModule } from './recipes/recipes.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { RecipesModule } from './recipes/recipes.module';
   imports: [
     BrowserModule,
     CoreModule,
+    HttpClientModule,
     UserModule,
     RecipesModule,
     AppRoutingModule,
