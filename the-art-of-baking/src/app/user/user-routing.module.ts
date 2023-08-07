@@ -10,12 +10,12 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
-        path: 'profile',
-        component: ProfileComponent
-    },
-    {
         path: 'register',
         component: RegisterComponent
+    },
+    {
+        path: 'profile',
+        component: ProfileComponent
     }
 ];
 
