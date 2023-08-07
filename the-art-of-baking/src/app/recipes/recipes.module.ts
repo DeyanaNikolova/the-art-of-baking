@@ -4,6 +4,7 @@ import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { AllRecipesComponent } from './all-recipes/all-recipes.component';
 import { RecipeRoutingModule } from './recipe-routing.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +15,9 @@ import { RecipeRoutingModule } from './recipe-routing.module';
     AllRecipesComponent
   ],
   imports: [
-    CommonModule, RecipeRoutingModule
+    CommonModule, 
+    RecipeRoutingModule,
+    RouterModule
   ]
 })
 export class RecipesModule { }
