@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AllRecipesComponent } from './all-recipes/all-recipes.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { AuthActivate } from '../core/guards/auth.activate';
 
 
 const routes: Routes = [
@@ -22,7 +23,8 @@ const routes: Routes = [
     },
     {
         path: 'add-recipe',
-        component: AddRecipeComponent
+        component: AddRecipeComponent,
+        canActivate: [AuthActivate]
     }
 ];
 
