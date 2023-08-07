@@ -4,13 +4,13 @@
     <form class="login-form">
         <div class="email">
             <label for="email">Email</label>
-            <input  type="text" name="email" placeholder="john.doe@gmail.com" />
+            <input  type="text" name="email" placeholder="john.doe@gmail.com" #inputEmail/>
         </div>
         <div class="pass">
             <label for="password">Password</label>
-            <input  type="password" name="password" placeholder="*****" />
+            <input  type="password" name="password" placeholder="*****" #inputPassword />
         </div>
 
-        <button class="btn">Login</button>
+        <button class="btn" (click)="login(inputEmail.value, inputPassword.value)">Login</button>
     </form>
 </div>
