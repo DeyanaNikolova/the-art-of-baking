@@ -28,8 +28,8 @@
             <li class="list-item">
                 <a routerLink="/profile">{{ username }}'s profile</a>
             </li>
-            <li class="list-item">
-                <a routerLink="/logout">Logout</a>
+            <li (click)="logout()" class="list-item">
+                <a>Logout</a>
             </li>
         </ul>
      </div>
