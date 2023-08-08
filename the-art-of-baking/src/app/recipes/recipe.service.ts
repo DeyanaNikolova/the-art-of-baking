@@ -7,12 +7,20 @@ import { environment } from 'src/environments/environment.development';
   providedIn: 'root'
 })
 export class RecipeService {
-
-apiUrl = environment;
-
   constructor(private http: HttpClient) { }
 
   getRecipes() {
-    return this.http.get<Recipe[]>(`${this.apiUrl}/recipes`);
+    const apiUrl = environment
+    return this.http.get<Recipe[]>(`${apiUrl}/data/recipes`);
+  }
+
+  getRecipe(id: string){
+    const apiUrl = environment
+    return this.http.get<Recipe>(`${apiUrl}/data/${id}`)
+  }
+
+  addRecipe(recipeName: string, shortDescription: string, image: string,ingredients: string, description: string, prepTime: string, cookingTime: string, servings: number){
+    const apiUrl = environment
+    return this.http.post<Recipe>(`${apiUrl}/data/recipes`, {recipeName, shortDescription, image, ingredients, description, prepTime, cookingTime, servings})
   }
 }

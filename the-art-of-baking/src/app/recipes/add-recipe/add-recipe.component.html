@@ -1,40 +1,101 @@
 <div class="container">
     <h1>Add Recipe</h1>
-    <form class="add-recipe">
+    <form #form="ngForm" (ngSubmit)="addRecipeSubmitHandler(form)" class="add-recipe">
         <div class="wrapper">
-            <label for="title">Recipe Name</label>
-            <input type="text" name="title" />
+            <label for="recipeName">Recipe Name</label>
+            <input 
+            type="text" 
+            name="recipeName" 
+            id="recipeName"
+            ngModel
+            #inputName="ngModel"
+            required
+            minlength="5"
+            />
         </div>
         <div class="wrapper">
-            <label for="description">Short Description</label>
-            <textarea name="decription" id="description" cols="30" rows="5"></textarea>
+            <label for="shortDescription">Short Description</label>
+            <textarea 
+            name="shortDescription" 
+            id="shortDescription" 
+            cols="30" 
+            rows="5"
+            ngModel
+            #inputShortDesc="ngModel"
+            required
+            minlength="30"
+            ></textarea>
         </div>
         <div class="wrapper">
             <label for="image">Image</label>
-            <input type="text" name="image" />
+            <input 
+            type="text" 
+            name="image" 
+            ngModel
+            #inputImage="ngModel"
+            required
+            />
         </div>
         <div class="wrapper">
-            <label for="description">Ingredients</label>
-            <textarea name="ingredients" id="ingredients" cols="30" rows="5"></textarea>
+            <label for="ingredients">Ingredients</label>
+            <textarea 
+            name="ingredients" 
+            id="ingredients" 
+            cols="30" 
+            rows="5"
+            ngModel
+            #inputIngredients="ngModel"
+            required
+            ></textarea>
         </div>
 
         <div class="wrapper">
             <label for="description">Description</label>
-            <textarea name="decription" id="description" cols="30" rows="5"></textarea>
+            <textarea 
+            name="decription" 
+            id="description" 
+            cols="30" 
+            rows="5"
+            minlength="30"
+            ngModel
+            #inputDescription="ngModel"
+            required
+            ></textarea>
         </div>
 
         <div class="wrapper features">
-            <label for="prep-time">Prep Time</label>
-            <input type="text" name="prep-time" />
+            <label for="prepTime">Prep Time</label>
+            <input 
+            type="text" 
+            name="prepTime"
+            id="prepTime"
+            ngModel
+            #inputPrepTime="ngModel"
+            required
+            />
 
-            <label for="cooking-time">Cooking Time</label>
-            <input type="text" name="cooking-time" />
+            <label for="cookingTime">Cooking Time</label>
+            <input 
+            type="text" 
+            name="cookingTime"
+            id="cookingTime"
+            ngModel
+            #inputCookingTime="ngModel" 
+            required
+            />
 
             <label for="servings">Servings</label>
-            <input type="text" name="servings" />
+            <input 
+            type="text" 
+            name="servings" 
+            id="servings"
+            ngModel
+            #inputServings="ngModel"
+            required
+            />
         </div>
 
-
+        <button class="btn">Cancel</button>
         <button class="btn">Add Recipe</button>
 
     </form>

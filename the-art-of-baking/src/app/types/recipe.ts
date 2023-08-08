@@ -8,7 +8,7 @@ export interface Recipe{
     description: string;
     prepTime: string;
     cookingTime: string;
-    serving: number;
+    servings: number;
     userName: User;
     userId: User;
     createdAt: string;

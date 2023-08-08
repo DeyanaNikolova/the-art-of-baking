@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from 'src/app/user/user.service';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-add-recipe',
@@ -10,8 +11,19 @@ import { UserService } from 'src/app/user/user.service';
 export class AddRecipeComponent {
 
   constructor(
-    private userService: UserService,
+    private recipeServise: RecipeService,
     private router: Router,
-    ){}
+  ) { }
 
+  addRecipeSubmitHandler(form: NgForm): void {
+    if (form.invalid) {
+      return;
+    }
+
+    const { recipeName, shortDescription, image, ingredients, description, prepTime, cookingTime, servings } = form.value;
+    this.recipeServise.addRecipe(recipeName, shortDescription, image, ingredients, description, prepTime, cookingTime, servings).subscribe(() => {
+     
+      this.router.navigate(['/recipes']);
+    });
+  }
 }
