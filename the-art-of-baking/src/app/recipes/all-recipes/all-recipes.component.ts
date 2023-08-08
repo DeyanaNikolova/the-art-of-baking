@@ -9,21 +9,19 @@ import { RecipeService } from '../recipe.service';
 })
 export class AllRecipesComponent implements OnInit {
 
-recipes: Recipe[] = [];
+  recipes: Recipe[] = [];
 
-constructor(private recipeService: RecipeService){ }
+  constructor(private recipeService: RecipeService) { }
 
-ngOnInit(): void {
-  this.recipeService.getRecipes().subscribe({
-    next: (recipes)=>{
-      this.recipes = recipes;
-      console.log(this.recipes);
-    },
-    error: (err: any)=> {
-      console.error(`Error: ${err}`);
-      
-    }
-  });
-}
-
+  ngOnInit(): void {
+    this.recipeService.getRecipes().subscribe({
+      next: (recipes) => {
+        this.recipes = recipes;
+        console.log(this.recipes);
+      },
+      error: (err: any) => {
+        console.error(`Error: ${err}`);
+      }
+    });
+  }
 }
