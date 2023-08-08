@@ -24,7 +24,18 @@ export class UserService implements OnDestroy {
   constructor(private http: HttpClient) {
     this.subscription = this.user$.subscribe(user => {
       this.user = user;
-    })
+    });
+  }
+
+  register(
+    email: string,
+    username: string,
+    password: string,
+    repass: string,
+  ){
+    const { apiUrl } = environment;
+    return this.http.post<User>(`${apiUrl}/users/register`, { email, username, password, repass })
+    .pipe(tap(user => this.user$$.next(user)));
   }
 
   login(email: string, password: string) {

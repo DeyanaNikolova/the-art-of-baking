@@ -1,24 +1,65 @@
 <div class="container">
 
     <h1>Register</h1>
-    <form class="register-form">
+    <form #form="ngForm" class="register-form" (ngSubmit)="register(form)">
         <div class="email">
             <label for="email">Email</label>
-            <input  type="text" name="email" placeholder="john.doe@gmail.com" />
+            <input 
+            type="email" 
+            name="email" 
+            placeholder="john.doe@gmail.com" 
+            id="email" 
+            ngModel
+            #inputEmail="ngModel" 
+            required
+            />
         </div>
         <div class="username">
             <label for="username">Username</label>
-            <input  type="text" name="username" placeholder="John" />
+            <input 
+            type="text" 
+            name="username" 
+            placeholder="John" 
+            id="username" 
+            ngModel 
+            #inputUsername="ngModel" 
+            required
+            />
         </div>
         <div class="pass">
             <label for="password">Password</label>
-            <input  type="password" name="password" placeholder="*****" />
+            <input 
+            type="password" 
+            name="password" 
+            placeholder="*****" 
+            id="password" 
+            ngModel
+            #inputPassword="ngModel"
+            required 
+            />
         </div>
         <div class="pass">
-            <label for="rePass">Repeat Password</label>
-            <input  type="password" name="repass" placeholder="*****" />
+            <label for="repass">Repeat Password</label>
+            <input 
+            type="password" 
+            name="repass" 
+            placeholder="*****"
+            id="repass"
+            ngModel
+            #inputRepass="ngModel"
+            required
+             />
         </div>
+        <!-- <div *ngIf="(inputRepass.dirty ||
+         inputRepass.touched) 
+         && inputRepass.invalid">
+            <p class="error-text">
+                *ngIf="inputRepass.hasError('notEqual') 
+                && inputPassword.valid"
+                Passwords don't match!
+            </p>
+        </div>  -->
 
-        <button class="btn">Register</button>
+        <button [disabled]="form.invalid" class="btn">Register</button>
     </form>
 </div>
