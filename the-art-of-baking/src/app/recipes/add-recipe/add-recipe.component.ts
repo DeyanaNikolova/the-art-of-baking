@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
+import { Recipe } from 'src/app/types/recipe';
 
 @Component({
   selector: 'app-add-recipe',

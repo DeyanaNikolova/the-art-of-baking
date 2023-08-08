@@ -21,6 +21,6 @@ export class RecipeService {
 
   addRecipe(recipeName: string, shortDescription: string, image: string,ingredients: string, description: string, prepTime: string, cookingTime: string, servings: number){
     const { apiUrl } = environment
-    return this.http.post<Recipe>(`${apiUrl}/data/recipes`, {recipeName, shortDescription, image, ingredients, description, prepTime, cookingTime, servings})
+    return this.http.post<Recipe>(`${apiUrl}/data/recipes`, {recipeName, shortDescription, image, ingredients, description, prepTime, cookingTime, servings});
   }
 }
