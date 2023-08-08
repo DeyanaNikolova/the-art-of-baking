@@ -27,10 +27,12 @@ margin-bottom: 50px;
     margin: 3px;
     border: none;
     border-radius: 4px;
+    width: 140%;
 }
 
 .add-recipe input {
-    height: 18px;
+    height: 20px;
+    width: 190%;
 }
 
 .wrapper{
@@ -39,15 +41,18 @@ margin-bottom: 50px;
     align-items: flex-start;
     margin-bottom: 6px;
 }
-.wrapper:nth-child(1){
+.wrapper:nth-child(1),
+.wrapper:nth-child(3){
     margin-left: -60px;
 }
+
 .features{
     display: flex;
+   margin-left: 120px;
 }
 
 .features input{
-    width: 100px;  
+    width: 85px;  
 }
 
 .btn{
