@@ -5,7 +5,7 @@ export interface Recipe{
     recipeName: string;
     shortDescription: string;
     ingredients: string;
-    description: string;
+    instructions: string;
     prepTime: string;
     cookingTime: string;
     servings: number;

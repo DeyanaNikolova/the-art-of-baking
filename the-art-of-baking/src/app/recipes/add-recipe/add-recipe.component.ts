@@ -21,8 +21,8 @@ export class AddRecipeComponent {
       return;
     }
 
-    const { recipeName, shortDescription, image, ingredients, description, prepTime, cookingTime, servings } = form.value;
-    this.recipeServise.addRecipe(recipeName, shortDescription, image, ingredients, description, prepTime, cookingTime, servings).subscribe(() => {
+    const { recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings } = form.value;
+    this.recipeServise.addRecipe(recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings).subscribe(() => {
      
       this.router.navigate(['/recipes']);
     });
