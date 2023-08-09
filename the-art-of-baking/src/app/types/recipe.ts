@@ -9,7 +9,7 @@ export interface Recipe{
     ingredients: string;
     instructions: string;
     prepTime: string;
-    cookingTime: string;
+    cookTime: string;
     servings: number;
     userName: User;
     userId: User;
