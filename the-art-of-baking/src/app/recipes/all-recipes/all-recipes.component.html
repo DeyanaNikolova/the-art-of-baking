@@ -1,8 +1,16 @@
 <div class="container">
-    <a [routerLink]="">
-        <h3>Recipe name</h3>
-    </a>
-<p>Short description</p>
-<p>description</p>
-<img src="" alt="recipe-img"/>
+    <h1>Recipe Details</h1>
+    <div *ngFor="let recipe of recipes">
+        <div>
+            <a [routerLink]="recipe._id">
+                <h3>{{recipe?.recipeName}}</h3>
+            </a>
+        <p>Short description:</p>
+        <p>{{recipe?.shortDescription}}</p>
+        </div>
+      
+    <img src="{{recipe?.imageUrl}}" alt="recipe-img"/>
+    
+    </div>
+   
 </div>

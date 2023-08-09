@@ -1,9 +1,11 @@
+import { Time } from "@angular/common";
 import { User } from "./user";
 
 export interface Recipe{
     _id: string;
     recipeName: string;
     shortDescription: string;
+    imageUrl: URL;
     ingredients: string;
     instructions: string;
     prepTime: string;
@@ -11,6 +13,6 @@ export interface Recipe{
     servings: number;
     userName: User;
     userId: User;
-    createdAt: string;
+    _createdOn: Time;
     updatedAt: string;
 }

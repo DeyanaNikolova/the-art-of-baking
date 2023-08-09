@@ -1,21 +1,20 @@
-<div class="container">
-    <h3>Recipe Name</h3>
+<div *ngIf="recipe" class="container">
+    <h3>{{recipe.recipeName}}</h3>
     <div>
         <p>Ingredients:</p>
-        <p></p>
+        <p>{{recipe.ingredients}}</p>
     </div>
     <div>
-        <p>Description:</p>
-        <p>description</p>
+        <p>Insctructions:</p>
+        <p>{{recipe.instructions}}</p>
     </div>
     <div>
-        <p>Prep time: </p>
-        <p>Cooking time:</p>
-        <p>Servings:</p>
+        <p>Prep time: {{recipe.prepTime}}</p>
+        <p>Cooking time: {{recipe.cookingTime}}</p>
+        <p>Servings: {{recipe.servings}}</p>
     </div>
     <div>
-        <p>Created at:</p>
-        <p>Updated at:</p>
+        <p>Created on: <time>{{recipe._createdOn}}</time></p>
     </div>
-    <img src="" alt="recipe-img" />
+    <img src="{{recipe.imageUrl}}" alt="recipe-img" />
 </div>
