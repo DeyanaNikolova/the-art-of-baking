@@ -12,7 +12,12 @@
             ngModel
             #inputEmail="ngModel" 
             required
+            email="true"
             />
+            <ng-container *ngIf="inputEmail.touched">
+                <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
+                <p class="error" *ngIf="inputEmail.errors?.['email']">Email is not valid!</p>
+            </ng-container>
         </div>
         <div class="username">
             <label for="username">Username</label>
@@ -24,8 +29,13 @@
             ngModel 
             #inputUsername="ngModel" 
             required
+            minlength="4"
             />
         </div>
+        <ng-container *ngIf="inputUsername.touched">
+            <p class="error" *ngIf="inputUsername.errors?.['required']">Username is required!</p>
+            <p class="error" *ngIf="inputUsername.errors?.['minlength']">Username must be minimum 4 letters!</p>
+        </ng-container>
         <div class="pass">
             <label for="password">Password</label>
             <input 
@@ -36,10 +46,15 @@
             ngModel
             #inputPassword="ngModel"
             required 
+            minlength="5"
             />
         </div>
+        <ng-container *ngIf="inputPassword.touched">
+            <p class="error" *ngIf="inputPassword.errors?.['required']">Password is required!</p>
+            <p class="error" *ngIf="inputPassword.errors?.['minlength']">Pasword must be minimum 5 characres!</p>
+        </ng-container>
         <div class="pass">
-            <label for="repass">Repeat Password</label>
+            <label for="repass">Confirm Password</label>
             <input 
             type="password" 
             name="repass" 
@@ -47,18 +62,16 @@
             id="repass"
             ngModel
             #inputRepass="ngModel"
+            passwordValidator="password"
             required
              />
         </div>
-        <!-- <div *ngIf="(inputRepass.dirty ||
-         inputRepass.touched) 
-         && inputRepass.invalid">
-            <p class="error-text">
-                *ngIf="inputRepass.hasError('notEqual') 
-                && inputPassword.valid"
+        <ng-container *ngIf="inputRepass.touched">
+            <p class="error" *ngIf="inputRepass.errors?.['required']">Confirm passwoed is required</p>
+            <p class="error" *ngIf="inputRepass.errors?.['']">
                 Passwords don't match!
             </p>
-        </div>  -->
+        </ng-container> 
 
         <button [disabled]="form.invalid" class="btn">Register</button>
     </form>

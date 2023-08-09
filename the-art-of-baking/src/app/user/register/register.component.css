@@ -62,3 +62,8 @@ h1{
     background-color: #fff;
     color: rgb(149, 35, 111);
 }
+
+.error{
+    color: red;
+    margin: 0;
+}
