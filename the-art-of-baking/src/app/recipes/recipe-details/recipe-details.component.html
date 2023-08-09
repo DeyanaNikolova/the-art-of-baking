@@ -1,20 +1,25 @@
 <div *ngIf="recipe" class="container">
-    <h3>{{recipe.recipeName}}</h3>
-    <div>
-        <p>Ingredients:</p>
-        <p>{{recipe.ingredients}}</p>
+    <div class="wrapper recipe-name">
+        <h3>{{recipe.recipeName}}</h3>
     </div>
-    <div>
-        <p>Insctructions:</p>
-        <p>{{recipe.instructions}}</p>
-    </div>
-    <div>
+    <div class="wrapper details">
         <p>Prep time: {{recipe.prepTime}}</p>
         <p>Cooking time: {{recipe.cookingTime}}</p>
         <p>Servings: {{recipe.servings}}</p>
     </div>
-    <div>
-        <p>Created on: <time>{{recipe._createdOn}}</time></p>
+    <div class="wrapper ingredients">
+        <p>Ingredients:</p>
+        <p>{{recipe.ingredients}}</p>
     </div>
-    <img src="{{recipe.imageUrl}}" alt="recipe-img" />
+    <div class="wrapper instructions">
+        <p>Insctructions:</p>
+        <p>{{recipe.instructions}}</p>
+    </div>
+ 
+    <div class="wrapper">
+        <img class="img" src="{{recipe.imageUrl}}" alt="recipe-img" />    
+    </div>
+    <div class="wrapper btn">
+        <button routerLink="/recipes">Back to Recipes</button>
+    </div>
 </div>

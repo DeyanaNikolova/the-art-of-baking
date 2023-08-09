@@ -1,0 +1,64 @@
+.container {
+    width: 80%;
+    height: 80%;
+    background-color: #d3c4d2;
+    border-radius: 6px;
+    margin: 60px auto;
+    font-size: 18px;
+    padding-bottom: 40px;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+}
+ .recipe-name{
+    font-size: 28px;
+    color: rgb(156, 13, 108);
+}
+
+.ingredients,
+.instructions{
+    display: flex;
+    flex-direction: column;
+    margin: 0 24px;
+    justify-content: center;
+}
+
+.ingredients :nth-child(1),
+.instructions :nth-child(1){
+font-size: 22px;
+font-weight: 600;
+color: rgb(156, 13, 108);
+margin-bottom: 0;
+}
+
+.deatils{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 30px 48px;
+}
+
+.details p{
+    border: 1px solid rgb(156, 13, 108);
+    margin: 12px 24px 20px;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: rgb(195, 170, 187);
+}
+
+.wrapper .img{
+    border-radius: 12px;
+    width: 200px;
+    height: 200px;
+}
+
+.btn button{
+    margin-top: 24px;
+    border: 1px solid  rgb(156, 13, 108);
+    background-color: rgb(195, 170, 187);
+    padding: 6px;
+    border-radius: 4px;
+    cursor: pointer;
+}
