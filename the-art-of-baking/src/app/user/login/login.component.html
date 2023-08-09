@@ -12,7 +12,13 @@
             ngModel
             #inputEmail="ngModel"
             required
+            email="true"
             />
+
+            <ng-container *ngIf="inputEmail.touched">
+                <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
+                <p class="error" *ngIf="inputEmail.errors?.['email']">Email is not valid!</p>
+            </ng-container>
         </div>
         <div class="pass">
             <label for="password">Password</label>
@@ -24,8 +30,13 @@
             ngModel
             #inputPassword="ngModel"
             required
+            minlength="5"
             />
         </div>
+        <ng-container *ngIf="inputPassword.touched">
+            <p *ngIf="inputPassword.errors?.['required']"class="error">Pasword is requred!</p>
+            <p *ngIf="inputPassword.errors?.['minlength']"class="error">Pasword must be minimum 5 characres!</p>
+        </ng-container>
 
         <button class="btn" [disabled]="form.invalid">Login</button>
     </form>
