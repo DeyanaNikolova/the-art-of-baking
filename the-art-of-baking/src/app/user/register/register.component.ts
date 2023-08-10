@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -15,13 +16,14 @@ export class RegisterComponent {
     private router: Router,
     ){}
 
+
   register(form: NgForm): void {
     if(form.invalid){
       return;
     }
     const { email, username, password, repass } = form.value;
     this.userService.register(email, username, password, repass).subscribe(()=>{
-
+    alert('Successfull :-)');
       this.router.navigate(['/'])
     });
   }
