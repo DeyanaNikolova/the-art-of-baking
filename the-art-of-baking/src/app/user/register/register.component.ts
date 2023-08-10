@@ -34,13 +34,17 @@ export class RegisterComponent {
   register(): void {
     console.log(this.form.value);
     
-    // if (form.invalid) {
-    //   return;
-    // }
-    // const { email, username, password, repass } = form.value;
-    // this.userService.register(email, username, password, repass).subscribe(() => {
-    //   alert('Successfull :-)');
-    //   this.router.navigate(['/'])
-    // });
+    if (this.form.invalid) {
+      return;
+    }
+    const { email,
+       username, 
+       passGroup: { password, repass} = {} 
+      } = this.form.value;
+      
+    this.userService.register(email!, username!, password!, repass!).subscribe(() => {
+      alert('Successfull :-)');
+      this.router.navigate(['/'])
+    });
   }
 }
