@@ -1,0 +1,10 @@
+.container {
+    width: 60%;
+    height: 80%;
+    background-color: #d3c4d2;
+    border-radius: 6px;
+    margin: 60px auto;
+    padding-bottom: 40px;
+    font-family: 'Courgette', cursive;
+    font-family: 'Dancing Script', cursive;
+}
