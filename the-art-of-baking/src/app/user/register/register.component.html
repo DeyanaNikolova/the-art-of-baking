@@ -41,8 +41,6 @@
                 </p>
             </ng-container>
         </ng-container>
-
-
-        <button class="btn">Register</button>
+        <button [disabled]="form.invalid" class="btn">Register</button>
     </form>
 </div>
