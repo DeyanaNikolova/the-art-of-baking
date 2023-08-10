@@ -21,10 +21,16 @@ export class AddRecipeComponent {
       return;
     }
 
+    console.log(form.value);
+    
     const { recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings } = form.value;
     this.recipeServise.addRecipe(recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings).subscribe(() => {
      
       this.router.navigate(['/recipes']);
     });
+  }
+
+  clearForm(form: NgForm): void{
+form.reset();
   }
 }

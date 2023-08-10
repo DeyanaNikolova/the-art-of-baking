@@ -12,11 +12,12 @@
             required
             minlength="5"
             />
-            <ng-container *ngIf="inputName.touched">
-                <p class="error" *ngIf="inputName?.errors?.['required']">Recipe name is required!</p>
-                <p class="error" *ngIf="inputName?.errors?.['minlength']">Recipe name should be minimum 5 letters long!</p>
-            </ng-container>
         </div>
+        <ng-container *ngIf="inputName.touched">
+            <p class="error" *ngIf="inputName?.errors?.['required']">Recipe name is required!</p>
+            <p class="error" *ngIf="inputName?.errors?.['minlength']">Recipe name should be minimum 5 letters long!</p>
+        </ng-container>
+
         <div class="wrapper">
             <label for="shortDescription">Short Description</label>
             <textarea 
@@ -29,11 +30,11 @@
             required
             minlength="30"
             ></textarea>
-            <ng-container *ngIf="inputShortDesc.touched">
+        </div>
+        <ng-container *ngIf="inputShortDesc.touched">
             <p class="error" *ngIf="inputShortDesc.errors?.['required']">Description is required!</p>
             <p class="error" *ngIf="inputShortDesc.errors?.['minlength']">Description should be minimum 30 characters long!</p>
-            </ng-container>
-        </div>
+        </ng-container>
         <div class="wrapper">
             <label for="image">Image</label>
             <input 
@@ -42,8 +43,13 @@
             id="image" 
             ngModel
             #inputImage="ngModel"
+            required
             />
         </div>
+        <ng-container *ngIf="inputImage.touched">
+            <p class="error" *ngIf="inputImage.errors?.['required']">Image is required!</p>
+        </ng-container>
+
         <div class="wrapper">
             <label for="ingredients">Ingredients</label>
             <textarea 
@@ -54,11 +60,11 @@
             ngModel
             #inputIngredients="ngModel"
             required
-            ></textarea>
-            <ng-container *ngIf="inputIngredients.touched">
-                <p class="error" *ngIf="inputIngredients.errors?.['required']">Ingredients are required!</p>
-            </ng-container>
+            ></textarea>   
         </div>
+        <ng-container *ngIf="inputIngredients.touched">
+            <p class="error" *ngIf="inputIngredients.errors?.['required']">Ingredients are required!</p>
+        </ng-container>
 
         <div class="wrapper">
             <label for="Instructions">Description</label>
@@ -71,10 +77,10 @@
             #inputInstructions="ngModel"
             required
             ></textarea>
-            <ng-container *ngIf="inputInstructions.touched">
-                <p class="error" *ngIf="inputInstructions.errors?.['required']">Instructions are required!</p>
-            </ng-container>
         </div>
+        <ng-container *ngIf="inputInstructions.touched">
+            <p class="error" *ngIf="inputInstructions.errors?.['required']">Instructions are required!</p>
+        </ng-container>
 
         <div class="wrapper features">
             <label for="prepTime">Prep Time</label>
@@ -116,7 +122,7 @@
             </ng-container>
         </div>
 
-        <button class="btn">Cancel</button>
+        <button (click)="clearForm(form)" class="btn">Cancel</button>
         <button class="btn" [disabled]="form.invalid">Add Recipe</button>
 
     </form>
