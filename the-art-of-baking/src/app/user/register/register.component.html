@@ -23,7 +23,7 @@
         <ng-container formGroupName="passGroup">
             <div class="pass">
                 <label for="password">Password</label>
-                <input type="password" name="password" placeholder="*****" formControlName="password" />
+                <input type="password" name="password" placeholder="*****" formControlName="password" id="password"/>
             </div>
             <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
                 <p class="error" *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']">Password is
