@@ -12,21 +12,26 @@ export class HeaderComponent {
   constructor(
     private userService: UserService,
     private router: Router
-    ){}
+  ) { }
 
-  get isLoggedIn(): boolean{
+  get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
 
-  get username(): string{
+  get username(): string {
     return this.userService.user?.username || '';
   }
 
-  logout():void{
-    if(this.userService.isLogged){
-    this.userService.logout();
-    this.router.navigate(['/']);
-    console.log('logout pressed');
+  logout(): void {
+    this.userService.logout().subscribe({
+    
+      next: () => {
+        this.router.navigate(['/login']);
+      },
+      error: () => {
+        this.router.navigate(['/login']);
+      }
+    });
   }
-  }
+
 }

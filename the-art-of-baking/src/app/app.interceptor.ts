@@ -15,7 +15,6 @@ export class AppInterceptor implements HttpInterceptor {
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
         const token = this.userService.getToken();
-        console.log(token);
 
         if (req.url.startsWith('/users')) {
             //     req = req.clone({

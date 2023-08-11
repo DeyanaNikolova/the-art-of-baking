@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
+import { SharedModule } from './shared/shared.module';
 
 
 
@@ -31,6 +32,7 @@ import { AuthenticateComponent } from './authenticate/authenticate.component';
     HttpClientModule,
     UserModule,
     RecipesModule,
+    SharedModule,
     AppRoutingModule,
   ],
   providers: [appInterceptorProvider],
