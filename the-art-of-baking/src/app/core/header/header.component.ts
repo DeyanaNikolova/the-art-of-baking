@@ -23,9 +23,10 @@ export class HeaderComponent {
   }
 
   logout():void{
-    console.log('logout pressed');
-    
+    if(this.userService.isLogged){
     this.userService.logout();
     this.router.navigate(['/']);
+    console.log('logout pressed');
+  }
   }
 }

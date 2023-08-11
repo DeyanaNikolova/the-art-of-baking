@@ -22,7 +22,7 @@ export class AddRecipeComponent {
     if (form.invalid) {
       return;
     }
-
+this.userService.getUserDetails()
     console.log(form.value);
     const { recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings } = form.value;
     this.recipeServise.addRecipe(recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings).subscribe(() => {

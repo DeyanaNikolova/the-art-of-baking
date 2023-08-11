@@ -18,12 +18,16 @@ export class AppInterceptor implements HttpInterceptor {
         console.log(token);
 
         if (req.url.startsWith('/users')) {
-            req = req.clone({
-              headers: req.headers.set('X-Authorization', token),
-              withCredentials: true
-            });
+            //     req = req.clone({
+            //    url: req.url.replace('/users', apiUrl)
+            //   });
+            if (token) {
+                req = req.clone({
+                    headers: req.headers.set('X-Authorization', token),
+                    withCredentials: true
+                });
+            }
         }
-
         return next.handle(req);
     }
 }

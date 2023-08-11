@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserRoutingModule } from './user-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { SharedModule } from '../shared/shared.module';
     UserRoutingModule,
     FormsModule,
     ReactiveFormsModule, 
-    SharedModule 
+    SharedModule, 
+    CoreModule
   ]
 })
 export class UserModule { }

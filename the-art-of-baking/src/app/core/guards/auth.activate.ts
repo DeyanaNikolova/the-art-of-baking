@@ -6,7 +6,9 @@ import { UserService } from "src/app/user/user.service";
 @Injectable({providedIn: 'root'})
 
 export class AuthActivate implements CanActivate{
+
     constructor(private userService: UserService){}
+
     canActivate(
         route: ActivatedRouteSnapshot, 
         state: RouterStateSnapshot
@@ -17,6 +19,7 @@ export class AuthActivate implements CanActivate{
          | UrlTree> 
          | Promise<boolean 
          | UrlTree> {
+            
         return this.userService.isLogged;
     }
 }

@@ -55,6 +55,9 @@ export class UserService implements OnDestroy {
   }
 
   getUserDetails(){
+   const token = localStorage.getItem('token');
+    console.log(token);
+    
     const { apiUrl } = environment;
     const id = this.user?._id;
     return this.http.get<User>(`${apiUrl}/users/${id}`)
