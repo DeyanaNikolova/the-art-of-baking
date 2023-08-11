@@ -11,6 +11,7 @@ import { RecipesModule } from './recipes/recipes.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { appInterceptorProvider } from './app.interceptor';
+import { AuthenticateComponent } from './authenticate/authenticate.component';
 
 
 
@@ -22,6 +23,7 @@ import { appInterceptorProvider } from './app.interceptor';
     MainComponent,
     HomeComponent,
     PageNotFoundComponent,
+    AuthenticateComponent,
   ],
   imports: [
     BrowserModule,

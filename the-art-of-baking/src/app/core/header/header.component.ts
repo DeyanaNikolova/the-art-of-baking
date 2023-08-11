@@ -23,6 +23,8 @@ export class HeaderComponent {
   }
 
   logout():void{
+    console.log('logout pressed');
+    
     this.userService.logout();
     this.router.navigate(['/']);
   }

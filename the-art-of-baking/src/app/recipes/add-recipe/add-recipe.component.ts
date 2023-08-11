@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RecipeService } from '../recipe.service';
+import { UserService } from 'src/app/user/user.service';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class AddRecipeComponent {
 
   constructor(
     private recipeServise: RecipeService,
+    private userService: UserService,
     private router: Router,
   ) { }
 
@@ -22,7 +24,6 @@ export class AddRecipeComponent {
     }
 
     console.log(form.value);
-    
     const { recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings } = form.value;
     this.recipeServise.addRecipe(recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings).subscribe(() => {
      

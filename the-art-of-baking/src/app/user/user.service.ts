@@ -54,9 +54,16 @@ export class UserService implements OnDestroy {
       this.user$$.next(user)}));
   }
 
+  getUserDetails(){
+    const { apiUrl } = environment;
+    const id = this.user?._id;
+    return this.http.get<User>(`${apiUrl}/users/${id}`)
+    .pipe(tap(user => this.user$$.next(user)));
+  }
+
   logout(){
   const  { apiUrl } = environment;
-  return this.http.post<User>(`${apiUrl}/users/logout`, {})
+  return this.http.get<User>(`${apiUrl}/users/logout`, {})
   .pipe(tap(()=> {
     localStorage.removeItem('token');
   this.user$$.next(undefined)}));
