@@ -22,9 +22,14 @@ export class UserService implements OnDestroy {
   subscription: Subscription;
 
   constructor(private http: HttpClient) {
+    const token = localStorage.getItem('token') || '';
     this.subscription = this.user$.subscribe(user => {
       this.user = user;
     });
+  }
+
+  getToken(){
+    return localStorage.getItem('token') || '';
   }
 
   register(
@@ -35,19 +40,26 @@ export class UserService implements OnDestroy {
   ){
     const { apiUrl } = environment;
     return this.http.post<User>(`${apiUrl}/users/register`, { email, username, password, repass })
-    .pipe(tap(user => this.user$$.next(user)));
+    .pipe(tap((user) => {
+      localStorage.setItem('token', user.accessToken);
+      this.user$$.next(user);
+    }));
   }
 
   login(email: string, password: string) {
     const { apiUrl } = environment;
     return this.http.post<User>(`${apiUrl}/users/login`, { email, password })
-    .pipe(tap(user=> this.user$$.next(user)));
+    .pipe(tap((user) => {
+      localStorage.setItem('token', user.accessToken);
+      this.user$$.next(user)}));
   }
 
   logout(){
   const  { apiUrl } = environment;
   return this.http.post<User>(`${apiUrl}/users/logout`, {})
-  .pipe(tap(()=> this.user$$.next(undefined)));
+  .pipe(tap(()=> {
+    localStorage.removeItem('token');
+  this.user$$.next(undefined)}));
   }
 
   ngOnDestroy(): void {

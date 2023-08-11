@@ -4,4 +4,5 @@ export interface User{
     username: string;
     repass: string;
     // _id: string;
+    accessToken: string;
 }
