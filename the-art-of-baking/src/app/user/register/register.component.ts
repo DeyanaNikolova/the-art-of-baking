@@ -32,7 +32,6 @@ export class RegisterComponent {
 
 
   register(): void {
-    console.log(this.form.value);
     
     if (this.form.invalid) {
       return;
