@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <h1 class="page-title">All Recipes</h1>
     <div class="card">
         <div class="wrapper" *ngFor="let recipe of recipes">
@@ -11,8 +11,44 @@
                 <p>{{recipe?.shortDescription}}</p>
             </div>
             <div class="img-wrapper">
-                <img class="img" src="{{recipe?.imageUrl}}" alt="recipe-img" />
+                        <img class="img" src="{{ recipe?.imageUrl }}" alt="recipe-img" />
             </div>
+            <div class="owner-data">
+                <p>{{recipe._ownerId}}</p>
+    </div>
         </div>
     </div>
+</div> -->
+
+<div *ngFor="let recipe of recipes" class="container">
+  <div class="card">
+    <div class="card__header">
+      <img
+        src="{{ recipe.imageUrl }}"
+        alt="card__image"
+        class="card__image"
+        width="600"
+      />
+    </div>
+    <div class="card__body">
+      <!-- <span class="tag tag-blue">Technology</span> -->
+      <a [routerLink]="recipe._id">
+      <h4>{{ recipe.recipeName }}</h4>
+      </a>
+      <p>{{ recipe.shortDescription }}</p>
+    </div>
+    <div class="card__footer">
+      <div class="user">
+        <img
+          src="https://i.pravatar.cc/40?img=1"
+          alt="user__image"
+          class="user__image"
+        />
+        <div class="user__info">
+          <h5>{{ recipe._ownerId}}</h5>
+          <small><time>{{ recipe._createdOn }}</time></small>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
