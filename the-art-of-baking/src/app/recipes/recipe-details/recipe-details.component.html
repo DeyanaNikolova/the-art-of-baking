@@ -1,25 +1,25 @@
 <div *ngIf="recipe" class="container">
-    <div class="wrapper recipe-name">
-        <h3>{{recipe.recipeName}}</h3>
-    </div>
-    <div class="wrapper details">
-        <p>Prep time: {{recipe.prepTime}}</p>
-        <p>Cook time: {{recipe.cookTime}}</p>
-        <p>Servings: {{recipe.servings}}</p>
-    </div>
-    <div class="wrapper ingredients">
-        <p>Ingredients:</p>
-        <p>{{recipe.ingredients}}</p>
-    </div>
-    <div class="wrapper instructions">
-        <p>Insctructions:</p>
-        <p>{{recipe.instructions}}</p>
-    </div>
- 
-    <div class="wrapper">
-        <img class="img" src="{{recipe.imageUrl}}" alt="recipe-img" />    
-    </div>
-    <div class="wrapper btn">
-        <button routerLink="/recipes">Back to Recipes</button>
-    </div>
+  <div class="wrapper recipe-name">
+    <h3>{{ recipe.recipeName }}</h3>
+  </div>
+  <div class="wrapper details">
+    <p>Prep time: {{ recipe.prepTime }}</p>
+    <p>Cook time: {{ recipe.cookTime }}</p>
+    <p>Servings: {{ recipe.servings }}</p>
+  </div>
+  <div class="wrapper ingredients">
+    <p>Ingredients:</p>
+    <p>{{ recipe.ingredients }}</p>
+  </div>
+  <div class="wrapper instructions">
+    <p>Insctructions:</p>
+    <p>{{ recipe.instructions }}</p>
+  </div>
+
+  <div class="wrapper">
+    <img class="img" src="{{ recipe.imageUrl }}" alt="recipe-img" />
+  </div>
+  <div class="wrapper btn">
+    <button routerLink="/recipes">Back to Recipes</button>
+  </div>
 </div>
