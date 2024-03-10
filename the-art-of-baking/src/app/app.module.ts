@@ -10,7 +10,7 @@ import { UserModule } from './user/user.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { appInterceptorProvider } from './app.interceptor';
+// import { appInterceptorProvider } from './app.interceptor';
 import { AuthenticateComponent } from './authenticate/authenticate.component';
 import { SharedModule } from './shared/shared.module';
 
@@ -35,7 +35,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     AppRoutingModule,
   ],
-  providers: [appInterceptorProvider],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
