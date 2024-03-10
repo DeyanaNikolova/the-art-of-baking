@@ -1,5 +1,5 @@
 import { Injectable, OnDestroy } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../types/user';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
@@ -67,7 +67,9 @@ export class UserService implements OnDestroy {
 
   logout() {
     const { apiUrl } = environment;
-    return this.http.get<any>(`${apiUrl}/users/logout`).pipe(
+    const headers = new HttpHeaders({'Content-type': 'application/json', 'X-Authorization': this.getToken()});
+    const options = {headers: headers}
+    return this.http.get<any>(`${apiUrl}/users/logout`, options).pipe(
       tap(() => {
         localStorage.removeItem('token');
         this.user$$.next(undefined);
