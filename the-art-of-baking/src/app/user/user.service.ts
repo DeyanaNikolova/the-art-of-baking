@@ -20,7 +20,7 @@ export class UserService implements OnDestroy {
   subscription: Subscription;
 
   constructor(private http: HttpClient) {
-     const token = localStorage.getItem('token') || '';
+    const token = localStorage.getItem('token') || '';
     this.subscription = this.user$.subscribe((user) => {
       this.user = user;
     });
@@ -30,10 +30,25 @@ export class UserService implements OnDestroy {
     return localStorage.getItem('token') || '';
   }
 
+  authHeaders() {
+    const options = {
+      headers: new HttpHeaders({
+        'Content-type': 'application/json',
+        'X-Authorization': this.getToken(),
+      }),
+    };
+    return options;
+  }
+
   register(email: string, username: string, password: string, repass: string) {
     const { apiUrl } = environment;
     return this.http
-      .post<User>(`${apiUrl}/users/register`, { email, username, password, repass })
+      .post<User>(`${apiUrl}/users/register`, {
+        email,
+        username,
+        password,
+        repass,
+      })
       .pipe(
         tap((user) => {
           localStorage.setItem('token', user.accessToken);
@@ -56,7 +71,7 @@ export class UserService implements OnDestroy {
 
   getUserDetails() {
     // const token = localStorage.getItem('token');
-    
+
     const { apiUrl } = environment;
     const id = this.user?._id;
 
@@ -67,9 +82,12 @@ export class UserService implements OnDestroy {
 
   logout() {
     const { apiUrl } = environment;
-    const headers = new HttpHeaders({'Content-type': 'application/json', 'X-Authorization': this.getToken()});
-    const options = {headers: headers}
-    return this.http.get<any>(`${apiUrl}/users/logout`, options).pipe(
+    // const headers = new HttpHeaders({
+    //   'Content-type': 'application/json',
+    //   'X-Authorization': this.getToken(),
+    // });
+    // const options = { headers: headers };
+    return this.http.get<any>(`${apiUrl}/users/logout`, this.authHeaders()).pipe(
       tap(() => {
         localStorage.removeItem('token');
         this.user$$.next(undefined);
