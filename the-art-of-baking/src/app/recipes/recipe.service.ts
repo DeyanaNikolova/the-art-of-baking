@@ -44,7 +44,6 @@ export class RecipeService {
       servings,
     };
     const token = this.userService.getToken();
-    console.log(token);
     const headers = new HttpHeaders({'Content-type': 'application/json', 'X-Authorization': token});
     const options = {headers: headers};
     return this.http.post<Recipe>(`${apiUrl}/data/recipes`,  recipe, options);
