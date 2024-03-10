@@ -14,7 +14,11 @@ export class AllRecipesComponent implements OnInit {
   constructor(private recipeService: RecipeService) { }
 
   ngOnInit(): void {
-    this.recipeService.getRecipes().subscribe({
+    this.getAll();
+  }
+
+  getAll(){
+   return this.recipeService.getRecipes().subscribe({
       next: (recipes) => {
         this.recipes = recipes;
         console.log(this.recipes);
