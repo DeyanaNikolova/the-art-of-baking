@@ -14,7 +14,7 @@ export class AddRecipeComponent {
 
   constructor(
     private recipeServise: RecipeService,
-    private userService: UserService,
+  //  private userService: UserService,
     private router: Router,
   ) { }
 
@@ -22,10 +22,10 @@ export class AddRecipeComponent {
     if (form.invalid) {
       return;
     }
-this.userService.getUserDetails()
+// this.userService.getUserDetails()
     console.log(form.value);
-    const { recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings } = form.value;
-    this.recipeServise.addRecipe(recipeName, shortDescription, image, ingredients, instructions, prepTime, cookingTime, servings).subscribe(() => {
+    const { recipeName, shortDescription, image, ingredients, instructions, prepTime, cookTime, servings } = form.value;
+    this.recipeServise.addRecipe(recipeName, shortDescription, image, ingredients, instructions, prepTime, cookTime, servings).subscribe(() => {
      
       this.router.navigate(['/recipes']);
     });
