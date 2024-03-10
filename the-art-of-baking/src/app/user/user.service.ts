@@ -4,17 +4,15 @@ import { User } from '../types/user';
 import { BehaviorSubject, Subscription, tap } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
-
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService implements OnDestroy {
   private user$$ = new BehaviorSubject<User | undefined>(undefined);
   public user$ = this.user$$.asObservable();
 
   user: User | undefined;
-  USER_KEY = '[user]';
+  //  USER_KEY = '[user]';
 
   get isLogged(): boolean {
     return !!this.user;
@@ -22,53 +20,59 @@ export class UserService implements OnDestroy {
   subscription: Subscription;
 
   constructor(private http: HttpClient) {
-    const token = localStorage.getItem('token') || '';
-    this.subscription = this.user$.subscribe(user => {
+     const token = localStorage.getItem('token') || '';
+    this.subscription = this.user$.subscribe((user) => {
       this.user = user;
     });
   }
 
-  getToken(){
+  getToken() {
     return localStorage.getItem('token') || '';
   }
 
-  register(
-    email: string,
-    username: string,
-    password: string,
-    repass: string,
-  ){
+  register(email: string, username: string, password: string, repass: string) {
     const { apiUrl } = environment;
-    return this.http.post<User>(`${apiUrl}/users/register`, { email, username, password, repass })
-    .pipe(tap((user) => {
-      localStorage.setItem('token', user.accessToken);
-      this.user$$.next(user);
-    }));
+    return this.http
+      .post<User>(`${apiUrl}/users/register`, { email, username, password, repass })
+      .pipe(
+        tap((user) => {
+          localStorage.setItem('token', user.accessToken);
+          this.user$$.next(user);
+        })
+      );
   }
 
   login(email: string, password: string) {
     const { apiUrl } = environment;
-    return this.http.post<User>(`${apiUrl}/users/login`, { email, password })
-    .pipe(tap((user) => {
-      localStorage.setItem('token', user.accessToken);
-      this.user$$.next(user)}));
+    return this.http
+      .post<User>(`${apiUrl}/users/login`, { email, password })
+      .pipe(
+        tap((user) => {
+          localStorage.setItem('token', user.accessToken);
+          this.user$$.next(user);
+        })
+      );
   }
 
-  getUserDetails(){
-   const token = localStorage.getItem('token'); 
+  getUserDetails() {
+    // const token = localStorage.getItem('token');
+    
     const { apiUrl } = environment;
     const id = this.user?._id;
-    
-    return this.http.get<User>(`${apiUrl}/users/${id}`)
-    .pipe(tap(user => this.user$$.next(user)));
+
+    return this.http
+      .get<User>(`${apiUrl}/users/${id}`)
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 
-  logout(){
-  const  { apiUrl } = environment;
-  return this.http.get<any>(`${apiUrl}/users/logout`)
-  .pipe(tap(()=> {
-    localStorage.removeItem('token');
-    this.user$$.next(undefined)}));
+  logout() {
+    const { apiUrl } = environment;
+    return this.http.get<any>(`${apiUrl}/users/logout`).pipe(
+      tap(() => {
+        localStorage.removeItem('token');
+        this.user$$.next(undefined);
+      })
+    );
   }
 
   ngOnDestroy(): void {
