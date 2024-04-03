@@ -25,7 +25,7 @@
 
       <ul *ngIf="isLoggedIn" class="nav-list auth">
         <li class="list-item">
-          <a routerLink="/profile">{{ username }}'s profile</a>
+          <a routerLink="/profile">{{ user?.username }}'s profile</a>
         </li>
         <li class="list-item">
           <a (click)="logout()">Logout</a>

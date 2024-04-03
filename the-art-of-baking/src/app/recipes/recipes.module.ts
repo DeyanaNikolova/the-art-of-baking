@@ -6,6 +6,7 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { AllRecipesComponent } from './all-recipes/all-recipes.component';
 import { RecipeRoutingModule } from './recipe-routing.module';
 import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CoreModule } from '../core/core.module';
     CommonModule, 
     RecipeRoutingModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    SharedModule
   ]
 })
 export class RecipesModule { }

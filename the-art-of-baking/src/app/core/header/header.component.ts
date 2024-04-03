@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/types/user';
 import { UserService } from 'src/app/user/user.service';
 
 @Component({
@@ -8,19 +9,27 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-
+ 
   constructor(
     private userService: UserService,
     private router: Router
-  ) { }
+  ) { 
+
+  }
 
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
-
-  get username(): string {
-    return this.userService.user?.username || '';
+  get user (){
+  return this.userService.user;
   }
+
+//  currentUser() {
+//     console.log(this.userService.user);
+    
+//     return this.userService.user ;
+  
+//   }
 
   logout(): void {
     this.userService.logout().subscribe({

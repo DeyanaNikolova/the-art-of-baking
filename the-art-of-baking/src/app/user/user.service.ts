@@ -80,19 +80,26 @@ export class UserService implements OnDestroy {
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
+  public get currentUser() {
+    return this.user$$.value;
+  }
+
   logout() {
     const { apiUrl } = environment;
+
     // const headers = new HttpHeaders({
     //   'Content-type': 'application/json',
     //   'X-Authorization': this.getToken(),
     // });
     // const options = { headers: headers };
-    return this.http.get<any>(`${apiUrl}/users/logout`, this.authHeaders()).pipe(
-      tap(() => {
-        localStorage.removeItem('token');
-        this.user$$.next(undefined);
-      })
-    );
+    return this.http
+      .get<any>(`${apiUrl}/users/logout`, this.authHeaders())
+      .pipe(
+        tap(() => {
+          localStorage.removeItem('token');
+          this.user$$.next(undefined);
+        })
+      );
   }
 
   ngOnDestroy(): void {
